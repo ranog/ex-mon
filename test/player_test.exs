@@ -2,7 +2,7 @@ defmodule PlayerTest do
   use ExUnit.Case
 
   test "should be able to create a player" do
-    player = %ExMon.Player{
+    expected_result = %ExMon.Player{
       life: 100,
       name: "Player 1",
       move_rnd: :punch,
@@ -10,11 +10,9 @@ defmodule PlayerTest do
       move_heal: :cure
     }
 
-    assert player.life == 100
-    assert player.name == "Player 1"
-    assert player.move_rnd == :punch
-    assert player.move_avg == :kick
-    assert player.move_heal == :cure
+    player = ExMon.Player.build("Player 1", :punch, :kick, :cure)
+
+    assert player == expected_result
   end
 
   @required_keys [:life, :name, :move_rnd, :move_avg, :move_heal]
