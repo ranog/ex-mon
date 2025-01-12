@@ -27,3 +27,6 @@ ex_mon-*.tar
 
 # JetBrains IDEs
 .idea/
+
+# VsCode
+.vscode/
